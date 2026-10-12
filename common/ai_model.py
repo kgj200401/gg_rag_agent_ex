@@ -2,8 +2,8 @@ from langchain_openai import ChatOpenAI
 from langchain_openai import OpenAIEmbeddings
 
 from common.config import (
-    # API_KEY,
-    # BASE_URL,
+    API_KEY,
+    BASE_URL,
     EMBEDDING_MODEL,
     MODEL,
     OPENAI_API_KEY,
@@ -11,14 +11,14 @@ from common.config import (
 
 def get_llm_model(
     model: str = MODEL,
-    api_key: str = OPENAI_API_KEY,
+    api_key: str = API_KEY,
     temperature: float = 0,
     max_tokens: int = 512
 ):
     return ChatOpenAI(
         model=MODEL,
-        api_key=OPENAI_API_KEY,
-        # base_url=BASE_URL,
+        api_key=API_KEY,
+        base_url=BASE_URL,
         temperature=temperature,
         use_responses_api=False,  # base url로 할 때는 이부분 넣어야 함.(MonoRouter 사용)
         max_tokens=max_tokens,
