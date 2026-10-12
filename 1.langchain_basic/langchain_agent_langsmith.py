@@ -1,4 +1,5 @@
 from langchain.agents import create_agent
+
 import sys
 sys.path.append("..")
 
@@ -10,9 +11,10 @@ def get_weather(city: str) -> str:
     return f"It's always sunny in {city}!"
 
 
+model=llm_connect()
 
 agent = create_agent(
-    model=llm_connect(),
+    model=model,
     tools=[get_weather],
     system_prompt="You are a helpful assistant",
 )
